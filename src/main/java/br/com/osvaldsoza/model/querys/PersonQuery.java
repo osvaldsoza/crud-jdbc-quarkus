@@ -1,6 +1,6 @@
-package br.com.osvaldsoza.util.querys;
+package br.com.osvaldsoza.model.querys;
 
-public class PersonQueryUtil {
+public class PersonQuery {
 
     private static final String FIND_BY_ID = "SELECT * FROM people WHERE id = ?";
     private static final String FIND_ALL = "SELECT * FROM people";
