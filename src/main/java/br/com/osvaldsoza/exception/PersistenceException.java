@@ -1,4 +1,4 @@
-package br.com.osvaldsoza;
+package br.com.osvaldsoza.exception;
 
 import java.sql.SQLException;
 

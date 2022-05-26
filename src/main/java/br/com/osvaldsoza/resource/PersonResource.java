@@ -1,7 +1,13 @@
-package br.com.osvaldsoza;
+package br.com.osvaldsoza.resource;
+
+import br.com.osvaldsoza.model.Person;
+import br.com.osvaldsoza.service.PersonService;
 
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -9,19 +15,19 @@ import java.util.List;
 public class PersonResource {
 
     @Inject
-    private PersonRepositoryImpl personRepository;
+    private PersonService personService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Person> all() {
-        return personRepository.findAll();
+        return personService.findAll();
     }
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Person get(@PathParam("id") int id) {
-        return personRepository.findById(id);
+        return personService.findById(id);
     }
 //
 //    @POST

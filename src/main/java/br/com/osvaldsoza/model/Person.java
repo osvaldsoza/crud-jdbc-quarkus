@@ -1,6 +1,4 @@
-package br.com.osvaldsoza;
-
-import java.util.UUID;
+package br.com.osvaldsoza.model;
 
 public class Person {
 
