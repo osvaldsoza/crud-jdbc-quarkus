@@ -4,13 +4,12 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
-import java.util.UUID;
 
 @Path("/people")
 public class PersonResource {
 
     @Inject
-    private PersonRepository personRepository;
+    private PersonRepositoryImpl personRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
