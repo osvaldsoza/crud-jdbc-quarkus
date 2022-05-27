@@ -1,15 +1,20 @@
 package br.com.osvaldsoza.model.querys;
 
-public class PersonQuery {
+public enum PersonQuery {
 
-    private static final String FIND_BY_ID = "SELECT * FROM people WHERE id = ?";
-    private static final String FIND_ALL = "SELECT * FROM people";
+    FIND_BY_ID("SELECT * FROM people WHERE id = ?"),
+    FIND_BY_NAME("SELECT * FROM people WHERE name like ?"),
+    FIND_ALL("SELECT * FROM people"),
+    INSERT("INSERT INTO people(id,name,age)"
+            + " VALUES(?,?,?)");
 
-    public static String getFindAll() {
-        return FIND_ALL;
+    private String query;
+
+    PersonQuery(String query) {
+        this.query = query;
     }
 
-    public static String getFindById() {
-        return FIND_BY_ID;
+    public String getQuery() {
+        return query;
     }
 }

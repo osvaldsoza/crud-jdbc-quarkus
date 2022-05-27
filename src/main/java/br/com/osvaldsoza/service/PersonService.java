@@ -20,4 +20,12 @@ public class PersonService {
     public Person findById(int id) {
         return personRepository.findById(id);
     }
+
+    public Person findByName(String name) {
+        return personRepository.findByName(name);
+    }
+
+    public int insert(Person person) {
+        return personRepository.insert(person);
+    }
 }

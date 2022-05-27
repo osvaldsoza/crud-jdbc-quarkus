@@ -4,10 +4,7 @@ import br.com.osvaldsoza.model.Person;
 import br.com.osvaldsoza.service.PersonService;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -29,14 +26,20 @@ public class PersonResource {
     public Person get(@PathParam("id") int id) {
         return personService.findById(id);
     }
+
+    @GET
+    @Path("/name/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Person getByName(@PathParam("name") String name) {
+        return personService.findByName(name);
+    }
 //
-//    @POST
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Person post(Person person) {
-//        return personRepository.insert(
-//                new Person(UUID.randomUUID(), person.getName(), person.getAge())
-//        );
-//    }
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public int post(Person person) {
+        return personService.insert(person);
+
+    }
 //
 //    @PUT
 //    @Path("/{id}")
